@@ -1,0 +1,215 @@
+<html>
+<title> Thank You-The End </title>
+<meta name="viewport" content="width=device-width, initial-scale=0.7">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    var usna = localStorage.getItem("key_name");
+    var txt = "CONGRATULATIONS!! " + usna + " you did it. You have reached the end. You are the smartest person I know. THANK YOU for playing";
+    var i = 0;
+
+    function typeWriter() {
+        if (i < txt.length) {
+            document.getElementById("diag").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, 40);
+
+        }
+
+    }
+
+
+    var start_tm = new Date();
+    var script_url = "https://script.google.com/macros/s/AKfycbwi-EJepVHEVFzlz_modMELud4tqUKf4J4Dp2Wy4lIX8Xh272UH/exec";
+
+    function insert_value() {
+        var name = localStorage.getItem("key_name");
+        var stage_name = "END";
+        var timestamp = start_tm;
+        var end_time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");;
+        var url = script_url + "?callback=ctrlq&end_time=" + end_time + "&timestamp=" + timestamp + "&stage_name=" + stage_name + "&name=" + name + "&action=insert";
+        var request = jQuery.ajax({
+            crossDomain: true,
+            url: url,
+            method: "GET",
+            dataType: "jsonp"
+        });
+    }
+
+    function check() {
+
+        if (localStorage.getItem("checker") != 89) {
+            localStorage.setItem("checker", "0");
+            alert("Looks like you are lost let me help you");
+            window.location.replace("../Intro/index.html");
+        }
+        else {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        }
+
+    }
+
+</script>
+
+<style>
+    html {
+        visibility: hidden;
+    }
+
+    body {
+        background-image: url('Img/bg.gif');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        margin: 0 auto;
+        padding: 50;
+    }
+
+    #UI {
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    #instructor {
+
+        position: absolute;
+        width: 200px;
+        height: 500px;
+        margin: 0 auto;
+        left: 6%;
+        bottom: 34%;
+        z-index: 1;
+    }
+
+
+    .inst {
+        position: relative;
+        content: url(Img/ani1.png);
+        z-index: 2;
+        animation-name: change;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes change {
+        0% {
+            content: url(Img/ani1.png);
+        }
+
+        50% {
+            content: url(Img/ani2.png);
+        }
+
+    }
+
+    #txt {
+        position: absolute;
+        background-color: #dcdde1;
+        bottom: 15%;
+        left: 2%;
+        width: 85%;
+        height: 130px;
+        padding: 23px;
+        margin: 0 auto;
+        z-index: 7;
+        border-radius: 20px;
+        opacity: 0.7;
+        border: 10px double;
+        font-family: Georgia;
+        font-size: 18px;
+        line-height: 1.3;
+        box-shadow: 5px 5px 10px grey;
+    }
+
+
+    #txt:empty:before {
+
+        content: attr(data-placeholder);
+        color: black;
+    }
+
+    #diag {
+        font-size: 25px;
+        font-family: 'Lato', sans-serif;
+        margin: -5px;
+        font-weight: 550;
+        padding: 0;
+    }
+
+    .credits {
+        position: absolute;
+        color: #feca57;
+        font-size: 22px;
+        font-style: italic;
+        right: 4%;
+        top: 21%;
+
+    }
+
+    .head {
+        color: #F8EFBA;
+        font-style: oblique;
+    }
+
+    @media only screen and (min-width: 900px) {
+
+        #instructor,
+        #txt {
+            left: 16%;
+            bottom: 22%;
+        }
+
+        #txt {
+            left: 10%;
+            bottom: 0;
+            width: 70%;
+            height: 140px;
+            margin: 10px;
+        }
+
+        .credits {
+            right: 21%;
+            top: 24%;
+            font-size: 25px;
+        }
+    }
+</style>
+
+<body onload="check()">
+    <div id="UI" onclick="typeWriter()">
+        <div>
+
+            <table class="credits">
+                <tr>
+                    <th> <i>
+                            <h4 class="head">Created by</h4>
+                    </th>
+                </tr>
+                <tr>
+                    <td> Glendon</td>
+                    <td>Susanna</td>
+                </tr>
+                <tr>
+                    <td>Bosco</td>
+                    <td>Boyden</td>
+                    
+                    
+                </tr>
+                <tr>
+                    <td> Kunal</td>
+                    <td>Wencelaus</td>
+                </tr>
+            </table>
+        </div>
+        <div id="instructor"><img src="Img/16.png" class="inst" id="change"></div>
+        <div id="txt">
+            <p id="diag" data-placeholder="Click here to start..." contenteditable="false"></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

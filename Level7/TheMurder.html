@@ -1,0 +1,331 @@
+<!DOCTYPE=html>
+  <html>
+  <title> TheOneWhereTheyreTrying </title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body onload="check()">
+    <div id="cont">
+      <h1> The Murder </h1>
+      <div id="time"></div>
+
+      <div id="onlytxt">
+        <p>On the next day, the <span class="popup" onclick="myFunction1()">Detective<span class="popuptext"
+              id="myPopup1" style="color:#6401CD">M</span>
+          </span> drove to the city’s main park where the murder had taken place. Once again Commissioner Morrow was
+          waiting for him, looking even more worried than the last time they met.
+          “We’ve identified her,” Morrow said, skipping formalities. “It’s Ilaria Clapton, the former Mayor’s wife.
+          Trying to reach her husband now.
+          I have to warn you, the murderer doesn’t lack imagination.”
+          Morrow and the <span class="popup" onclick="myFunction2()">Detective<span class="popuptext" id="myPopup2"
+              style="color:#310069">I</span></span> made their way through the dozens of policemen gathered at the crime
+          scene until they got to Ilaria’s body.
+          The scene was shocking.
+        </p>
+
+        <center>
+          <img id="img" src="TheMurder.png">
+        </center>
+
+        <p>“Is that paint on her body?” asked the Detective.<br><br>
+          “Yes, the guy has painted her limbs in purple. Any idea why he would do that?”<br><br>
+          “It’s violet, usually associated with the sin of pride,” answered the
+          <span class="popup" onclick="myFunction3()">Detective<span class="popuptext" id="myPopup3"
+              style="color:#D097FE">E</span></span>.
+          “Did you find any evidence?”<br><br>
+          “This time nothing, not even a cryptic card.”<br><br>
+          “I’m sure something is hidden around here. Make sure to search everywhere within 100 feet of the body,”
+          advised the
+          <span class="popup" onclick="myFunction4()">Detective<span class="popuptext" id="myPopup4"
+              style="color:#9530FD">T</span></span>.<br><br>
+          Morrow was still staring at the body. “I’ll check with my men.”
+        </p> <br><br>
+        <div align="center">
+
+          <input type="number" id=ans maxlength="4" size="1">
+
+          <input type="submit" value="CONTINUE" onclick="validatePass()"></a><br><br><br><br><br><br><br>
+          <script type="text/javascript">
+            function validatePass() {
+              var a = String.fromCharCode(0x39, 0x37, 0x32, 0x36);
+              if (document.getElementById('ans').value == a) {
+                insert_value(); storedata();
+                alert("The final case!!");
+                window.location.replace("End.html")
+              } else {
+                alert('Wrong Passcode');
+              }
+            }
+
+            var checker = 89;
+            var start_tm = new Date();
+            var script_url = "https://script.google.com/macros/s/AKfycbwi-EJepVHEVFzlz_modMELud4tqUKf4J4Dp2Wy4lIX8Xh272UH/exec";
+
+            function insert_value() {
+              var name = localStorage.getItem("key_name");
+              var stage_name = "Stage 7.3";
+              var timestamp = start_tm;
+              var end_time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");;
+              var url = script_url + "?callback=ctrlq&end_time=" + end_time + "&timestamp=" + timestamp + "&stage_name=" + stage_name + "&name=" + name + "&action=insert";
+              var request = jQuery.ajax({
+                crossDomain: true,
+                url: url,
+                method: "GET",
+                dataType: "jsonp"
+              });
+            }
+
+            function check() {
+
+              if (localStorage.getItem("checker") != 72) {
+                localStorage.setItem("checker", "0");
+                alert("Looks like you are lost let me help you");
+                window.location.replace("../Intro/index.html");
+              }
+              else {
+                document.getElementsByTagName("html")[0].style.visibility = "visible";
+              }
+
+            }
+            function storedata() {
+
+              localStorage.setItem("checker", checker);
+            }
+
+            var countDownDate = new Date("Aug 30, 2020 02:00:00").getTime();
+
+
+            var x = setInterval(function () {
+
+
+              var now = new Date().getTime();
+
+
+              var distance = countDownDate - now;
+
+
+              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+              document.getElementById("time").innerHTML = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s `;
+
+
+              if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("time").innerHTML = "The event is done!!! Thank you for participating";
+              }
+            }, 1000);
+          </script>
+        </div>
+      </div>
+    </div>
+    <style>
+      html {
+        visibility: hidden;
+      }
+
+      body {
+        text-align: left;
+        background: #faebd7;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+
+      h1 {
+        color: #2f4f4f;
+        text-align: center;
+        padding: 50px 50px 3px;
+        font-size: 65px;
+        font-family: Georgia;
+      }
+      #time {
+                position: fixed;
+                bottom: 2%;
+                right: 5%;
+                font-size: 20px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color: black;
+                background-color: rgba(129, 126, 126, 0.452);
+                box-shadow: 1px 1px 15px 1px rgba(124, 121, 121, 0.466);
+                z-index: 0;
+            }
+
+      #cont {
+        background: #fffacd;
+        margin: 0 auto;
+      }
+
+      #onlytxt {
+        color: #808080;
+        font-size: 24px;
+        font-family: Raavi;
+        margin: 0 auto;
+        width: 80%;
+
+      }
+
+      h3 {
+        color: #696969;
+        text-align: center;
+        padding: 5px 10px 0px 10px;
+        font-size: 40px;
+        font-family: Raavi;
+      }
+
+      #img {
+
+        width: 150px;
+        height: 150px;
+
+      }
+
+      input[type=submit] {
+        background-color: #d2691e;
+        border-radius: 6px;
+        border: none;
+        color: white;
+        font-size: 22px;
+        padding: 12px 20px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+
+      #ans {
+        text-align: center;
+        width: 120px;
+        margin-left: 30px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border: 2px solid grey;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        font-size: 25px;
+      }
+
+      #ans:focus {
+        border-color: lightgrey;
+      }
+
+      @media only screen and (min-width: 900px) {
+
+        #cont {
+          width: 80%;
+          margin: 0 auto;
+        }
+
+        #img {
+          width: 500px;
+          height: 500px;
+        }
+      }
+    </style>
+
+    <style>
+      .popup {
+        font-size: 20px;
+      }
+
+      @media only screen and (max-width: 1080px) {
+
+        /* For mobile phones: */
+        [class="popup"] {
+          font-size: 40px;
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+          font-weight: bold;
+        }
+      }
+
+      /* Popup container */
+      .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      /* The actual popup (appears on top) */
+      .popup .popuptext {
+        font-size: 40px;
+        line-height: 40px;
+        visibility: hidden;
+        width: 55px;
+        background-color: #fff;
+        text-align: center;
+        border: 2px solid #efefef;
+        border-radius: 10px;
+        padding: 8px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -20px;
+      }
+
+      /* Popup arrow */
+      .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+
+      .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s
+      }
+
+      @-webkit-keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+    <script>
+      function myFunction1() {
+        var popup = document.getElementById("myPopup1");
+        popup.classList.toggle("show");
+      }
+      function myFunction2() {
+        var popup = document.getElementById("myPopup2");
+        popup.classList.toggle("show");
+      }
+      function myFunction3() {
+        var popup = document.getElementById("myPopup3");
+        popup.classList.toggle("show");
+      }
+      function myFunction4() {
+        var popup = document.getElementById("myPopup4");
+        popup.classList.toggle("show");
+      }
+    </script>
+
+  </body>
+
+  </html>

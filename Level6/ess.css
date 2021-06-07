@@ -1,0 +1,232 @@
+html{
+  visibility: hidden;
+}
+
+body::before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: fixed;
+  background-image: url(Img/fire-dance.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+
+#time{
+  position: fixed;
+  bottom:5%;
+  right: 5%;
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:ivory;
+  background-color: rgba(129, 126, 126, 0.452);
+  box-shadow: 1px 1px 15px 1px rgba(124, 121, 121, 0.466); 
+  
+}
+.container {
+  width: 100%;
+  margin: 4rem auto 0 5rem;
+}
+
+.cl{
+  display: block;
+  width:340px;
+  height: 310px;
+  margin-left: 1%;
+  margin-top: 11%;
+  transition: transform .2s;
+  cursor: pointer;
+
+}
+
+.cl :hover{
+ 
+  transform: scale(1.2);
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 10;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(245, 229, 142);
+  background-color: rgba(243, 179, 106, 0.8);
+
+  
+}
+.modal-content{
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+@keyframes zoom{
+  from{transform: scale(0)}
+  to{transform: scale(1)}
+}
+.close{
+  position: absolute;
+  top:15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 80px;
+  font-weight: bolder;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus{
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width:700px){
+  .modal-content{
+    width:100%;
+    padding-top: 100px;
+  }
+}
+
+#check{
+ 
+  color:black;
+  padding:11px 13px;
+  background-color: rgba(243, 179, 106, 0.9);
+  text-align: center;
+  font-weight: bold;
+  border: 1.9px solid #99803a;
+    border-radius: 7px;
+    box-shadow: 1px 1px 15px 5px ; 
+
+
+}
+#check:focus{
+  background-color: #ece578;
+  padding: 12px 14px;
+  box-shadow: 1px 1px 15px 5px rgba(243, 179, 106, 0.8); 
+  outline: burlywood;
+}
+
+
+#img1,#img2,#img3,#img4,#img5,#img6,#img7 {
+  position: absolute;
+  top: 20%;
+  left: 46%;
+  cursor: move;
+  width:100px;
+  height:500px;
+}
+
+
+#img1{
+  transform: rotate(-1deg);
+  z-index: 2;
+
+}
+
+
+#img2{
+  transform: rotate(21deg);
+  z-index: 1;
+
+}
+
+#img3{
+  transform: rotate(-23deg);
+  z-index: 3;
+}
+
+#img4{
+  transform: rotate(43deg);
+  z-index: 5;
+}
+
+#img5{
+  transform: rotate(-45deg);
+  z-index: 4;
+}
+
+#img6{
+  transform: rotate(66deg);
+}
+
+#img7{
+  transform: rotate(-66deg);
+  z-index: 6;
+}
+/*
+#img1,#img2,#img3,#img4,#img5,#img6,#img7:hover{
+  box-shadow: 0px 0px 10px 1px #fffa65;
+}*/
+  /*
+  #mydivheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: none;
+    color: #fff;
+  }
+  */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape), (orientation:portrait)  {
+
+    #time{
+      font-size: 32px;
+    }
+    
+    .cl{
+      width:560px;
+      height: 510px;
+      margin-left: 21vw;
+      margin-top: 15%;
+    }
+
+    
+#img1,#img2,#img3,#img4,#img5,#img6,#img7 {
+  position: absolute;
+  top: 87vw;
+  left: 67vw;
+  cursor: move;
+  width: 110px;
+  height: 505px;
+}
+
+.modal-content{
+  width:100%;
+  padding-top: 40%;
+}
+
+.container {
+  width: 100%;
+  margin: 98vw auto 0 48vw;
+}
+
+#check{
+  padding: 25px 25px;
+  font-size: 34px;
+  
+}
+#check::placeholder{
+  font-size: 34px;
+  font-style: italic;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+}
+#check:focus::placeholder{
+  font-size: 38px;
+  font-weight: 900;
+  color:rgb(35, 114, 81);
+}
+#check:focus{
+  padding: 28px 28px;
+}
+  }

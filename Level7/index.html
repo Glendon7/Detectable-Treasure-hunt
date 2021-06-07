@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html>
+<title> TheOneWithIntroductions </title>
+<meta name="viewport" content="width=device-width, initial-scale=0.7, shrink-to-fit=yes">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+<script>
+    var usna = localStorage.getItem("key_name");
+    var story = [{ m: "Wow!!! " + usna + " that was amazing, you are so smart, that was a tough one." },
+    { m: "I guess I should start calling you Detective " + usna + " from now on." },
+    { m: "OK we have a new case for you." },
+    { m: "This is the last one the final one use everything you have learnt this one is interesting. " }
+    ];
+
+    var lin = 0;
+    var i = 0
+    var images = ["7", "3", "5", "4"];
+
+    function ChangeImg() {
+
+
+
+        document.getElementById("change").src = "Img/" + images[i] + ".png";
+
+        i++;
+
+    }
+
+
+    function execute_diag() {
+
+        if (story.length === lin) {
+            document.getElementById("UI").style.display = "none";
+            document.getElementById("cont").style.visibility = "visible";
+            document.getElementById("cont").style.display = "block";
+            //sk();
+
+        }
+
+        while (lin < story.length) {
+            var current_line = story[lin];
+
+            if (undefined !== current_line.m) {
+                document.getElementById("diag").innerHTML = current_line.m;
+                ChangeImg();
+
+            }
+
+
+            break;
+
+        }
+        lin = lin + 1;
+    }
+
+    function ready() {
+        document.getElementById("UI").style.display = "none";
+        document.getElementById("cont").style.visibility = "visible";
+        document.getElementById("cont").style.display = "block";
+    }
+    var countDownDate = new Date("Aug 30, 2020 02:00:00").getTime();
+
+
+    var x = setInterval(function () {
+
+
+        var now = new Date().getTime();
+
+
+        var distance = countDownDate - now;
+
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+        document.getElementById("time").innerHTML = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s `;
+
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("time").innerHTML = "The event is done!!! Thank you for participating";
+        }
+    }, 1000);
+</script>
+</head>
+
+<body onload="check()">
+
+    <div id="UI" onclick="execute_diag()">
+
+        <div id="instructor">
+            <img src="Img/1.png" class="inst" id="change">
+
+        </div>
+
+        <div id="txt">
+
+             <p id="diag" data-placeholder="Click here to start..." contenteditable="false"></p>
+
+
+        </div>
+    </div>
+
+
+
+    <div id="cont">
+        <h1> Mystery Solver? </h1>
+        <div id="time"></div>
+
+        <div id="onlytxt">
+            <p> There's a buzz in the town about a secret detective helping the commissioner on his latest case,
+                with intillegence no match, cryptic codes, fine eye-sight. Solving the unsolved. Is it you?
+            </p>
+            <br><br>
+            <center> <img id="img" src="Puzz3.jpg"> </center>
+            <h3>H3Y THERE!</h3>
+
+            <p>This a puzzle Crime 5tory which is also the last stage to find your treasure.
+                Now, it may not be 1nstantly clear what the puzzle is but there are clues spread over the text to guide
+                you.
+                0nce you figure it out, you will reveal a four-digit passcode, which will be the key to the next
+                chapter.
+                Could you be the ultimate mystery solver? Input your first passcode below and press “Continue” to find
+                out.</p>
+        </div>
+        <div align="center">
+            <input type="number" id=ans maxlength="4" size="1">
+            <a href="TheTime.html" onclick="javascript:return validatePass()">
+                <input type="submit" value="CONTINUE"></a><br><br><br><br><br><br>
+            <script type="text/javascript">
+
+
+                function validatePass() {
+                    if (document.getElementById('ans').value == "3510") {
+                        insert_value(); storedata();
+                        alert("Good Job!!");
+
+                        return true;
+                    } else {
+                        alert('Wrong Passcode.Try again ^-^');
+                        return false;
+                    }
+                }
+
+                var checker = 64;
+                var start_tm = new Date();
+                var script_url = "https://script.google.com/macros/s/AKfycbwi-EJepVHEVFzlz_modMELud4tqUKf4J4Dp2Wy4lIX8Xh272UH/exec";
+
+                function insert_value() {
+                    var name = localStorage.getItem("key_name");
+                    var stage_name = "Stage 7.1";
+                    var timestamp = start_tm;
+                    var end_time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");;
+                    var url = script_url + "?callback=ctrlq&end_time=" + end_time + "&timestamp=" + timestamp + "&stage_name=" + stage_name + "&name=" + name + "&action=insert";
+                    var request = jQuery.ajax({
+                        crossDomain: true,
+                        url: url,
+                        method: "GET",
+                        dataType: "jsonp"
+                    });
+                }
+
+                function check() {
+
+                    if (localStorage.getItem("checker") != 43) {
+                        localStorage.setItem("checker", "0");
+                        alert("Looks like you are lost let me help you");
+                        window.location.replace("../Intro/index.html");
+                    }
+                    else {
+                        document.getElementsByTagName("html")[0].style.visibility = "visible";
+                    }
+
+                }
+                function storedata() {
+
+                    localStorage.setItem("checker", checker);
+                }
+
+
+            </script>
+        </div>
+    </div>
+
+    <style>
+        html {
+            visibility: hidden;
+        }
+
+        body {
+            text-align: left;
+            background: #faebd7;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        #time {
+            position: fixed;
+            bottom: 2%;
+            right: 5%;
+            font-size: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: black;
+            background-color: rgba(129, 126, 126, 0.452);
+            box-shadow: 1px 1px 15px 1px rgba(124, 121, 121, 0.466);
+            z-index: 0;
+        }
+
+        h1 {
+            color: #2f4f4f;
+            text-align: center;
+            padding: 50px 50px 3px;
+            font-size: 65px;
+            font-family: Georgia;
+        }
+
+        #cont {
+            background: #fffacd;
+            visibility: hidden;
+            display: none;
+            margin: 0 auto;
+        }
+
+        #onlytxt {
+            color: #808080;
+            font-size: 24px;
+            font-family: Raavi;
+            margin: 0 auto;
+            width: 80%;
+
+        }
+
+        h3 {
+            color: #696969;
+            text-align: center;
+            padding: 5px 10px 0px 10px;
+            font-size: 40px;
+            font-family: Raavi;
+        }
+
+        #img {
+
+            width: 240px;
+            height: 150px;
+
+        }
+
+        input[type=submit] {
+            background-color: #d2691e;
+            border-radius: 6px;
+            border: none;
+            color: white;
+            font-size: 22px;
+            padding: 12px 20px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        #ans {
+            text-align: center;
+            width: 120px;
+            margin-left: 30px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border: 2px solid grey;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            font-size: 25px;
+        }
+
+        #ans:focus {
+            border-color: lightgrey;
+        }
+
+
+        #UI {
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        #instructor {
+
+            position: absolute;
+            width: 200px;
+            height: 500px;
+            margin: 0 auto;
+            left: 6%;
+            bottom: 22%;
+            z-index: 1;
+        }
+
+
+        .inst {
+            position: relative;
+
+            z-index: 2;
+        }
+
+        #txt {
+            position: absolute;
+            background-color: #dcdde1;
+            bottom: 6%;
+            left: 2%;
+            width: 85%;
+            height: 130px;
+            padding: 18px;
+            margin: 0 auto;
+            z-index: 7;
+            border-radius: 20px;
+            opacity: 0.7;
+            border: 10px double;
+            font-family: Georgia;
+            font-size: 18px;
+            line-height: 1.3;
+            box-shadow: 5px 5px 10px grey;
+        }
+
+        #diag {
+            font-size: larger;
+            font-family: 'Lato', sans-serif;
+            margin-left: 25px;
+        }
+
+        @media only screen and (min-width: 900px) {
+
+            #cont {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            #instructor {
+                left: 16%;
+                bottom: 22%;
+            }
+
+            #txt {
+                left: 10%;
+                bottom: 0;
+                width: 70%;
+                height: 140px;
+                margin: 10px;
+            }
+
+            #img {
+                width: 410px;
+                height: 270px;
+            }
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Choices</title>
+<meta name="viewport" content="width=device-width, initial-scale=0.7">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+var countDownDate = new Date("Aug 30, 2020 02:00:00").getTime();
+
+
+var x = setInterval(function() {
+
+
+  var now = new Date().getTime();
+
+
+  var distance = countDownDate - now;
+
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+  document.getElementById("time").innerHTML =`Time left: ${days}d ${hours}h ${minutes}m ${seconds}s `;
+
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("time").innerHTML = "The event is done!!! Thank you for participating";
+  }
+}, 1000);
+
+var txt="Well even a child could have solved that, nothing special you still haven't earned my respect let's see if you can solve this one. ";
+var i=0;
+
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("diag").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
+
+  }
+  if(i==txt.length){
+    document.getElementById("next").style.visibility="visible"
+   // document.getElementById("UI").style.display="none";
+    //document.getElementById("puzzle2").style.display="inline";
+  }
+  //console.log(txt.length);
+  //console.log(i);
+}
+
+function ready(){
+   document.getElementById("UI").style.display="none";
+  document.getElementById("puzzle2").style.visibility="visible";
+  document.getElementById("puzzle2").style.display="block";
+}
+var c = 0;
+function f1() {
+c++;
+document.getElementById("myImg4").removeAttribute("onclick");
+if (c==2){
+  insert_value();storedata();
+ alert("Congrats!!! Right answer");
+window.location.replace("../Level3/Logic.html");}}
+ function f2() {
+c++;
+document.getElementById("myImg2").removeAttribute("onclick");
+if (c==2){
+  insert_value();storedata();
+ alert("Congrats!!! Right answer");
+window.location.replace("../Level3/Logic.html");}}
+ function f3() {
+ alert("Oops! Wrong answer.");}
+
+var checker=11;
+var start_tm= new Date();
+    var script_url ="https://script.google.com/macros/s/AKfycbwi-EJepVHEVFzlz_modMELud4tqUKf4J4Dp2Wy4lIX8Xh272UH/exec";
+
+    function insert_value() {
+  	var name= localStorage.getItem("key_name");
+	var stage_name= "Stage 2";
+	var timestamp= start_tm;
+	var end_time= new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");;
+   var url = script_url+"?callback=ctrlq&end_time="+end_time+"&timestamp="+timestamp+"&stage_name="+stage_name+"&name="+name+"&action=insert";
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+}
+
+function check(){
+
+  if( localStorage.getItem("checker")!=7){
+    localStorage.setItem("checker","0");
+    alert("Looks like you are lost let me help you");
+    window.location.replace("../Intro/index.html");
+  }
+  else{
+    document.getElementsByTagName("html")[0].style.visibility = "visible";
+  }
+
+}
+function storedata(){
+  localStorage.setItem("checker",checker);
+}
+
+</script>
+
+<style>
+
+body::before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: fixed;
+  background-image: url(IMG/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+html{
+    visibility: hidden;
+}
+
+body{
+  height:100%;
+  margin:0;
+}
+
+
+#time{
+    position: fixed;
+    top:5%;
+    right: 5%;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:white;
+    background-color: rgba(129, 126, 126, 0.452);
+    box-shadow: 1px 1px 15px 1px rgba(124, 121, 121, 0.466);
+
+}
+/*
+.bg{
+
+  background-image: url("IMG/bg.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+*/
+#puzzle2{
+ visibility: hidden;
+ display: none;
+ width:100%;
+ height: 100%;
+ margin: 0 auto;
+
+}
+
+.ques{
+  font-family :Calibri;
+color :Yellow;
+font-size:24px;
+margin:0 auto;
+width:80%;
+text-align: center;
+}
+
+.cards{
+
+  margin: 40px auto;
+}
+
+  .hint {
+    width: 260px;
+    height: 180px;
+    margin: 31px auto;
+    margin-top: 15%;
+
+}
+
+#UI{
+
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+
+}
+
+#instructor{
+
+	position: absolute;
+	width: 200px;
+	height: 500px;
+	margin: 0 auto;
+	left:6%;
+	bottom:34%;
+	z-index: 1;
+  }
+
+
+  .inst{
+	position: relative;
+
+	z-index: 2;
+  }
+
+#txt{
+    position:absolute;
+    background-color:#dcdde1;
+    bottom: 20%;
+    left:2%;
+	width: 85%;
+	height: 130px;
+    padding: 18px;
+    margin:0 auto;
+	z-index: 7;
+	border-radius:20px;
+	opacity: 0.7;
+	border: 10px double ;
+	font-family: Georgia;
+	font-size:18px;
+	line-height:1.3;
+	box-shadow: 5px 5px 10px grey;
+}
+
+
+#txt:empty:before{
+
+  content:attr(data-placeholder);
+  color:black;
+}
+
+#diag{
+  font-size: larger;
+  font-family: 'Lato', sans-serif;
+  margin-left: 25px;
+  font-weight: 550;
+
+}
+
+#next{
+   visibility: hidden;
+   position: absolute;
+   right: 10px;
+   bottom:0;
+   right: 1;
+   width: 50px;
+   height: 50px;
+
+  }
+
+  #next:hover{
+    width: 53px;
+    height: 53px;
+
+  }
+  p:empty:not(:focus)::before {
+  content: attr(data-placeholder);
+}
+
+#petal-die {
+  display: inline-block;
+  margin: 8px;
+  /* float: center; */
+  max-width: 100px;
+  max-height: 140px;
+  width: 95px;
+  height:140px;
+
+}
+
+#petal-die img{
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (min-width: 900px) {
+
+
+
+    #instructor,#txt{
+        left:16%;
+        bottom: 22%;
+    }
+    #txt{
+        left:10%;
+        bottom: 0;
+        width: 70%;
+        height: 140px;
+        margin: 10px;
+    }
+
+    .ques{
+      font-size:30px;
+      width:70%;
+      margin:0 auto;
+
+      text-align: center;
+    }
+    .cards{
+      margin-top:30px ;
+      margin-bottom: 0;
+    }
+    .hint {
+    width: 390px;
+    height: 260px;
+    margin: 20px auto;
+    margin-top: 8%;
+}
+  }
+
+
+</style>
+</head>
+ <body onload="check()" >
+
+  <div id="UI" onclick="typeWriter()" class="bg">
+
+    <div id="instructor" >
+        <img src="Img/7.png" class="inst" id="change" >
+
+    </div>
+
+    <div id="txt" >
+
+      <p id="diag" data-placeholder="Click here to start..." contenteditable="false"></p>
+      <img src="Img/next.png" id="next" onclick="ready()">
+
+    </div>
+
+  </div>
+
+
+  <div id="puzzle2" class="bg">
+    <div id="time"></div>
+
+    <center>
+      <img src ="IMG\edited 1.png" class="hint">
+    </center>
+
+
+    <p class="ques">You are shown a set of four cards placed on a table, each of which has a number on one side and a colored patch on the other side.<br>
+      The visible faces of the cards show 5, 4, silver and copper.
+      Which card(s) must you turn over in order to test the truth of the proposition that if a card shows an even number on one face, then its opposite face is silver?
+      </p>
+
+      <center>
+
+        <div class = "cards" >
+
+          <div id="petal-die" style = "display: inline-block">
+            <img id = "myImg0" src="IMG\5.jpg" width="95" height = "140" onclick="f3()"><br><br><br>
+          </div>
+
+          <div id = "petal-die" style = "display: inline-block">
+            <img id = "myImg4" src="IMG\4.jpg" width="95" height = "140" onclick="f1()"><br><br><br>
+          </div>
+
+          <div id = "petal-die" style = "display: inline-block">
+              <img id = "myImg1" src="IMG\Steampunk Silver.jpg" width="95" height = "140" onclick="f3()"><br><br><br>
+          </div>
+
+          <div id = "petal-die" style = "display: inline-block">
+              <img id = "myImg2" src="IMG\Steampunk.jpg" width="95" height = "140" onclick="f2()"><br><br><br>
+          </div>
+
+        </div>
+
+      </center>
+
+  </div>
+
+</body>
+
+</html>

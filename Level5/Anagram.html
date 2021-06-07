@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anagram</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, shrink-to-fit=yes">
+
+  
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,400;1,600&display=swap" rel="stylesheet"> 
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="check()">
+	
+    <div id="UI" onclick="execute_diag()">
+
+        <div id="instructor">
+            <img src="Img/8.png" class="inst" id="change">
+
+        </div>
+
+        <div id="txt">
+
+            <p id="diag"></p>
+            
+
+        </div>
+    </div>
+
+	<div id="cont">
+
+	<div class="header">
+		<h1 id="header-title">Anagram</h1>
+	</div>
+
+
+	<div class="container">
+
+		<form name="form1" >
+
+		  	<div class="form-group row">
+			    <label class="col-sm-2 col-form-label">Berty Cyrus ice</label>
+			    <div class="col-sm-10 col-md-5">
+			      <input type="text" class="form-control form-control-sm in" id="a1" name="a1">
+			    </div>
+			    <div class="col-md-3">
+			    	<small>*Protecting Computers</small>
+			    </div>
+			</div>
+
+			<div class="form-group row">
+			    <label class="col-sm-2 col-form-label">cony Pinter</label>
+			    <div class="col-sm-10 col-md-5">
+			      <input type="text" class="form-control form-control-sm in" name="a2">
+			    </div>
+			    <div class="col-md-3">
+			    	<small>*Encoding data</small>
+			    </div>
+			</div>
+
+			<div class="form-group row">
+			    <label class="col-sm-2 col-form-label">AD bag it</label>
+			    <div class="col-sm-10 col-md-5">
+			      <input type="text" class="form-control form-control-sm in" name="a3">
+			    </div>
+			    <div class="col-md-3">
+			    	<small>*Massive worldwide Information</small>
+			    </div>
+			</div>
+
+			<div class="form-group row">
+			    <label class="col-sm-2 col-form-label">clip more</label>
+			    <div class="col-sm-10 col-md-5">
+			      <input type="text" class="form-control form-control-sm in" name="a4">
+			    </div>
+			    <div class="col-md-3">
+			    	<small>*Translator for Machines</small>
+			    </div>
+			</div>
+
+			<div class="form-group row">
+			    <label class="col-sm-2 col-form-label">chappy gro try</label>
+			    <div class="col-sm-10 col-md-5">
+			      <input type="text" class="form-control form-control-sm in"  name="a5">
+			    </div>
+			    <div class="col-md-3">
+			    	<small>*keeping Information concealed</small>
+			    </div>
+			</div>
+
+			<div class="form-group row">
+			    <label class="col-sm-2 col-form-label">Ln reek</label>
+			    <div class="col-sm-10 col-md-5">
+			      <input type="text" class="form-control form-control-sm in" name="a6">
+			    </div>
+			    <div class="col-md-3">
+			    	<small>*A Base for your OS</small>
+			    </div>
+			</div>
+
+			<br><br>
+		</form>
+			<div class="form-group row">
+				<div class="col-md-12">
+					<input class="btn btn-lg btn-outline-dark" type="submit" value="Submit Answers" onclick="checkAnswers()">	
+				</div>
+			</div>
+
+			<div id="time"></div>
+		
+
+	</div> 
+
+	<div class="footer">
+		
+	</div>
+			
+
+	<script src="main.js"></script>
+	
+	<!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+</div>
+</body>
+</html>

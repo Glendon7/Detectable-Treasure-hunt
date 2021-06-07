@@ -1,0 +1,252 @@
+body {
+	margin: 0;
+	background-color: #a1e6e3;
+	text-align: center;
+}
+
+nav {
+	background-color: #d7fffd;
+}
+
+
+.navbar {
+	padding: 20px;
+}
+
+.nav-brand-text {
+	color: #197163;
+	font-family: 'Roboto Slab', serif;
+}
+
+@media screen and (min-width: 300px){
+	.nav-brand-text {
+		font-size: 16px;
+	}
+}
+
+@media screen and (min-width: 600px){
+	.nav-brand-text {
+		font-size: 25px;
+	}
+}
+
+.nav-button {
+	background-color: #197163;
+	border: 0;
+	border-radius: 5px;
+}
+
+.nav-button:hover {
+	background-color: #158467;
+}
+
+
+.section-1 {
+	padding: 3.7em 2em;
+}
+
+.heading-text {
+	font-family: 'Roboto Slab', serif;
+	color: #065446;
+	padding-bottom: 0.8em;
+}
+
+.heading-subtext {
+	font-family: 'Lato', sans-serif;
+	color: #363636;
+}
+
+.span-title {
+	color: #ba7967;
+}
+
+
+
+hr {
+	border-bottom: 0.3px solid #158415;
+	width: 30%;
+	margin-bottom: 30px;
+}
+
+
+
+
+.section-2 {
+	padding: 3.7em 3.5em;
+}
+
+
+h5 {
+	font-family: 'Bree Serif', serif;
+	font-size: 32px;
+	color: #197163;
+	margin-bottom: 40px;
+}
+
+.list-group {
+	background-color: #d9adad; 
+	border-radius: 10px;
+	padding: 40px;
+	text-align: start;
+}
+
+.list {
+	font-family:  Cochin, Georgia, Times, 'Times New Roman', serif;
+	color: #363636;
+	margin-bottom: 25px;
+	font-size:18px;
+}
+
+.names{
+	width: 250px;
+	font-family: 'Merriweather',sans-serif;
+	margin:0 auto;
+	
+	color:#197163;
+}
+.names p{
+	margin:0 auto;
+	color:#065446;
+	text-align-last: right;
+}
+.Detectable{
+	font-family: Georgia,Helvetica,sans-serif;
+	/* color:#30336b; */
+	color:#eb3b5a;
+	font-weight: 600;
+	font-size:46px;
+	
+	padding-bottom: 18px;
+	
+
+
+}
+
+@media screen and (min-width: 100px){
+	
+
+
+.start-btn {
+	margin-bottom: 20px;
+}
+
+.btn-lg {
+	background-color: #197163;
+	padding: 12px 28px;
+	border: 0;
+	border-radius: 5px;
+}
+
+.btn-lg:hover {
+	background-color: #158467;
+}
+
+
+
+
+
+
+footer {
+	background-color: #519872;
+	padding: 20px;
+	margin-top: 60px;
+}
+
+.footer-text {
+	text-transform: capitalize;
+	font-family: 'Merriweather', serif;
+	margin-bottom: 35px;
+	color: #363636;
+}
+
+.copyright {
+	margin-top: 60px;
+}
+
+
+
+.fa {
+	color: #065446;
+	font-size: 40px;
+	text-decoration: none;
+}
+
+.fa:hover {
+	color: #065446;
+	opacity: 0.6;
+	text-decoration: none;
+}
+
+.fa-instagram {
+	margin-right: 80px;
+	margin-left: auto;
+}
+
+.fa-whatsapp {
+	margin-right: auto;
+	/* margin-left: 40px; */
+}
+
+@media screen and (min-width: 300px){
+	
+.start-btn {
+	margin-bottom: 20px;
+}
+
+.btn-lg {
+	background-color: #197163;
+	padding: 12px 28px;
+	border: 0;
+	border-radius: 5px;
+}
+
+.btn-lg:hover {
+	background-color: #158467;
+}
+
+
+
+
+
+
+footer {
+	background-color: #519872;
+	padding: 20px;
+	margin-top: 60px;
+}
+
+.footer-text {
+	text-transform: capitalize;
+	font-family: 'Merriweather', serif;
+	margin-bottom: 35px;
+	color: #363636;
+}
+
+.copyright {
+	margin-top: 60px;
+}
+
+
+
+.fa {
+	color: #065446;
+	font-size: 40px;
+	text-decoration: none;
+}
+
+.fa:hover {
+	color: #065446;
+	opacity: 0.6;
+	text-decoration: none;
+}
+
+.fa-instagram {
+	margin-right: 80px;
+	margin-left: auto;
+}
+
+.fa-whatsapp {
+	margin-right: auto;
+	/* margin-left: 40px; */
+}
+}

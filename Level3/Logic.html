@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Logic</title>
+    <link rel="stylesheet" href="Puzzle_1style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        var name = localStorage.getItem("key_name");
+        var txt = "OK " + name + " not bad. Let's play a game its called daisy and clover. This test your logical skill you will need it down the line.  ";
+        var i = 0;
+
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("diag").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, 40);
+
+            }
+            if (i == txt.length) {
+                document.getElementById("next").style.visibility = "visible"
+
+            }
+        }
+
+        function ready() {
+            document.getElementById("UI").style.display = "none";
+            document.getElementById("cont").style.visibility = "visible";
+            document.getElementById("cont").style.display = "block";
+        }
+
+
+        function f2() {
+            var total = 0
+            for (var i = 0; i < 4; i++) {
+                var random = Math.round(Math.random() * 4) + 1;
+                document.getElementById("myImg" + i.toString()).src = "petals/dice-" + random.toString() + ".png";
+                if (random == 2) {
+                    total += 2
+                }
+                if (random == 4) {
+                    total += 4
+                }
+
+            }
+            document.getElementById("totalpetals").innerHTML = 'There are ' + total + ' petals around the flower. ';
+
+        }
+
+    </script>
+</head>
+
+<body onload="check()">
+
+
+    <div id="UI" onclick="typeWriter()" class="bg">
+
+        <div id="instructor">
+            <img src="8.png" class="inst" id="change">
+
+        </div>
+
+        <div id="txt">
+
+            <p id="diag" data-placeholder="Click here to start..." contenteditable="false"></p>
+            <img src="next.png" id="next" onclick="ready()">
+
+        </div>
+    </div>
+
+
+
+    <center>
+
+        <div id="cont" class="bg">
+            <h1 class="title1"> Daisy N Clover </h1>
+            <div id="time"></div>
+
+            <div id="rules">
+                <p> The rules require that you roll the dice below (Click on the image of the hand) and check the
+                    answer. Think of the logic and then answer correctly "how many petals there are around the flower".
+                </p>
+                <p>You can repeat the procedure until you discover the secret rule of the puzzle.
+                    How many throws do you need to figure out this puzzle? </p>
+            </div>
+
+
+            <div id="dicepetals">
+                <div id="petal-die">
+                    <img id="myImg0" src="petals/dice-1.png" name="dice-1">
+                </div>
+                <div id="petal-die" style="display: inline-block">
+                    <img id="myImg3" src="petals/dice-2.png" name="dice-2">
+                </div>
+                <div id="petal-die" style="display: inline-block">
+                    <img id="myImg1" src="petals/dice-3.png" name=" dice-3">
+                </div>
+                <div id="petal-die" style="display: inline-block">
+                    <img id="myImg2" src="petals/dice-4.png" name=" dice-4">
+                </div>
+            </div>
+
+            <div id="totalpetals"> There are 6 petals around the rose. </div>
+            <img id="rolld" src="rollme.jpg" width="60" height="60" onclick="f2()">
+
+
+
+            <div id="ddd">
+                <p> Text the number in the given box and submit if you think your answer is right. Go for it!</p>
+            </div>
+
+            <div id="yourquestion">
+                <div id="quest-die" style="display: inline-block">
+                    <img src="petals/dice-2.png" width="80" height="80"> </div>
+                <div id="quest-die" style="display: inline-block">
+                    <img src="petals/dice-5.png" width="80" height="80"> </div>
+                <div id="quest-die" style="display: inline-block">
+                    <img src="petals/dice-0.png" width="80" height="80"> </div>
+                <div id="quest-die" style="display: inline-block">
+                    <img src="petals/dice-5.png" width="80" height="80"> </div>
+            </div>
+
+            <div id="youranswer">
+                Enter your answer: <input type="number" id="ans" size="3" required><br><br>
+
+                <input type="submit" value="SUBMIT" onclick="validatePass()"></a><br><br><br><br><br><br>
+            </div>
+
+
+
+        </div>
+    </center>
+
+    <script type="text/javascript">
+        var countDownDate = new Date("Aug 30, 2020 02:00:00").getTime();
+
+
+        var x = setInterval(function () {
+
+
+            var now = new Date().getTime();
+
+
+            var distance = countDownDate - now;
+
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+            document.getElementById("time").innerHTML = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s `;
+
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("time").innerHTML = "The event is done!!! Thank you for participating";
+            }
+        }, 1000);
+        
+
+        function validatePass() {
+            if (document.getElementById('ans').value == '2') {
+                insert_value(); storedata();
+                alert("The next stage is waiting for you")
+                window.location.replace("../level4/Labyrinth.html");
+            } else {
+                alert('Oops! Wrong Answer. Try again!!!');
+                return false;
+            }
+        }
+
+
+        var checker = 14;
+        var start_tm = new Date();
+        var script_url = "https://script.google.com/macros/s/AKfycbwi-EJepVHEVFzlz_modMELud4tqUKf4J4Dp2Wy4lIX8Xh272UH/exec";
+
+        function insert_value() {
+            var name = localStorage.getItem("key_name");
+            var stage_name = "Stage 3";
+            var timestamp = start_tm;
+            var end_time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");;
+            var url = script_url + "?callback=ctrlq&end_time=" + end_time + "&timestamp=" + timestamp + "&stage_name=" + stage_name + "&name=" + name + "&action=insert";
+            var request = jQuery.ajax({
+                crossDomain: true,
+                url: url,
+                method: "GET",
+                dataType: "jsonp"
+            });
+        }
+
+        function check() {
+
+            if (localStorage.getItem("checker") != 11) {
+                localStorage.setItem("checker", "0");
+                alert("Looks like you are lost let me help you");
+                window.location.replace("../Intro/index.html");
+            }
+            else {
+                document.getElementsByTagName("html")[0].style.visibility = "visible";
+            }
+
+        }
+        function storedata() {
+
+            localStorage.setItem("checker", checker);
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

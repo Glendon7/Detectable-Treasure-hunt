@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<title> TheOneWithIntroductions </title>
+<meta name="viewport" content="width=device-width, initial-scale=0.7, shrink-to-fit=yes">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+</head>
+
+<body onload="check()">
+    <div id="cont">
+        <h1> The Time </h1>
+        <div id="time"></div>
+
+        <div id="onlytxt">
+            <p> You could easily tell the Detective was a peculiar person by just looking at him.
+                He had many obsessions, but the most noteworthy was his obsession with time. <br>
+                Constantly keeping track of it, the Detective was never late for any occasion.
+                Naturally, the detective had a love for watches, especially electronic ones.<br>
+                He was fascinated by their accuracy and dependability.
+                He had a small collection of rare electronic watches on one of his shelves, <br>which he examined every
+                evening before bed.
+                Interestingly, none of them were adjusted to show the correct time and nobody knew the reason except for
+                the Detective himself.
+            </p>
+            <br><br>
+            <center> <img id="img" src="Time.jpg"><br> </center>
+            <p>While going through his daily watch examination, the Detective noticed that there was something off with
+                one of his watches.<br>
+                He meticulously fixed it and then continued his evening routine.
+                However, just when he went under the blankets and started drifting away,<br> his phone rang.
+                He looked at the screen and read “Commissioner Morrow.”
+                the Detective had to answer as he rarely received calls from the police department,<br> and never at
+                night.<br>
+                “Good evening, Commissioner. Didn’t expect calls at this time, is there a problem?”<br>
+                “Hello, Detective. We have a case here and I think you may be interested.”<br>
+                “I’m listening…” he replied, yet couldn’t stop thinking about his watch.”
+            </p>
+            <div align="center">
+                <input type="number" id=ans maxlength="4" size="1">
+                <a href="TheMurder.html" onclick="javascript:return validatePass()">
+                    <input type="submit" value="CONTINUE"></a> <br><br><br><br><br>
+                <script type="text/javascript">
+                    function validatePass() {
+                        var a = String.fromCharCode(0x32, 0x30, 0x32, 0x31);
+                        if (document.getElementById('ans').value == a) {
+                            insert_value(); storedata();
+                            alert("Perfect Timing!!");
+                            return true;
+                        } else {
+                            alert('Wrong Passcode. Try again ^-^');
+                            return false;
+                        }
+                    }
+
+                    var checker = 72;
+                    var start_tm = new Date();
+                    var script_url = "https://script.google.com/macros/s/AKfycbwi-EJepVHEVFzlz_modMELud4tqUKf4J4Dp2Wy4lIX8Xh272UH/exec";
+
+                    function insert_value() {
+                        var name = localStorage.getItem("key_name");
+                        var stage_name = "Stage 7.2";
+                        var timestamp = start_tm;
+                        var end_time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");;
+                        var url = script_url + "?callback=ctrlq&end_time=" + end_time + "&timestamp=" + timestamp + "&stage_name=" + stage_name + "&name=" + name + "&action=insert";
+                        var request = jQuery.ajax({
+                            crossDomain: true,
+                            url: url,
+                            method: "GET",
+                            dataType: "jsonp"
+                        });
+                    }
+
+                    function check() {
+
+                        if (localStorage.getItem("checker") != 64) {
+                            localStorage.setItem("checker", "0");
+                            alert("Looks like you are lost let me help you");
+                            window.location.replace("../Intro/index.html");
+                        }
+                        else {
+                            document.getElementsByTagName("html")[0].style.visibility = "visible";
+                        }
+
+                    }
+                    function storedata() {
+
+                        localStorage.setItem("checker", checker);
+                    }
+
+                    var countDownDate = new Date("Aug 30, 2020 02:00:00").getTime();
+
+
+                    var x = setInterval(function () {
+
+
+                        var now = new Date().getTime();
+
+
+                        var distance = countDownDate - now;
+
+
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+                        document.getElementById("time").innerHTML = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s `;
+
+
+                        if (distance < 0) {
+                            clearInterval(x);
+                            document.getElementById("time").innerHTML = "The event is done!!! Thank you for participating";
+                        }
+                    }, 1000);
+                </script>
+            </div>
+        </div>
+        <style>
+            html {
+                visibility: hidden;
+            }
+
+            body {
+                text-align: left;
+                background: #faebd7;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+
+            #time {
+                position: fixed;
+                bottom: 2%;
+                right: 5%;
+                font-size: 20px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color: black;
+                background-color: rgba(129, 126, 126, 0.452);
+                box-shadow: 1px 1px 15px 1px rgba(124, 121, 121, 0.466);
+                z-index: 0;
+            }
+
+            h1 {
+                color: #2f4f4f;
+                text-align: center;
+                padding: 50px 50px 3px;
+                font-size: 65px;
+                font-family: Georgia;
+            }
+
+            #cont {
+                background: #fffacd;
+                margin: 0 auto;
+            }
+
+            #onlytxt {
+                color: #808080;
+                font-size: 24px;
+                font-family: Raavi;
+                margin: 0 auto;
+                width: 80%;
+
+            }
+
+            h3 {
+                color: #696969;
+                text-align: center;
+                padding: 5px 10px 0px 10px;
+                font-size: 40px;
+                font-family: Raavi;
+            }
+
+            #img {
+
+                width: 250px;
+                height: 120px;
+
+            }
+
+            input[type=submit] {
+                background-color: #d2691e;
+                border-radius: 6px;
+                border: none;
+                color: white;
+                font-size: 22px;
+                padding: 12px 20px;
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
+            #ans {
+                text-align: center;
+                width: 120px;
+                margin-left: 30px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                border: 2px solid grey;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                font-size: 25px;
+            }
+
+            #ans:focus {
+                border-color: lightgrey;
+            }
+
+            @media only screen and (min-width: 900px) {
+
+                #cont {
+                    width: 80%;
+                    margin: 0 auto;
+                }
+
+                #img {
+                    width: 510px;
+                    height: 270px;
+                }
+            }
+        </style>
+</body>
+
+</html>

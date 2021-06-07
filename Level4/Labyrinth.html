@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta name="viewport" content="width=device-width, initial-scale=0.7 maximum-scale=0.7 " >
+  <title>
+    Labyrinth
+  </title>
+  
+  <script src="p5.js"></script>
+  <script src="p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+
+  <meta charset="utf-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="Ball.js"></script>
+  <script src="Cell.js"></script>
+  <script src="sketch.js"></script>
+  <script src="main.js"></script>
+</head>
+
+<body onload="check()">
+
+  <div id="UI" onclick="execute_diag()" class="bg">
+
+    <div id="instructor">
+        <img src="Img/1.png" class="inst" id="change">
+
+    </div>
+
+    <div id="txt">
+
+         <p id="diag" data-placeholder="Click here to start..." contenteditable="false"></p>
+        
+
+    </div>
+</div>
+
+<div id="cont" class="bg">
+  <header>
+    The Labyrinth
+  </header>
+  
+  <div class="cnv">
+    <div id="main"></div>
+    <div id="up"></div>
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="down"></div>
+  </div>
+  <div id="time"></div>
+</div>
+
+</body></html>
